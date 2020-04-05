@@ -29,6 +29,7 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *,cover
+.python-version
 
 # Translations
 *.mo
