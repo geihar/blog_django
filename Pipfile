@@ -7,9 +7,9 @@ verify_ssl = true
 
 [packages]
 django = "*"
-python = "==3.6.6"
 django-environ = "*"
 django-taggit = "*"
+markdown = "*"
 
 [requires]
 python_version = "3.6"

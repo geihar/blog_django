@@ -46,6 +46,7 @@ target/
 
 \.idea/
 .env
+local_settings
 .webassets-cache
 gen/
 package-lock.json

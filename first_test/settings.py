@@ -17,11 +17,6 @@ env = environ.Env(
     DEBUG=(bool, False),
     SECRET_KEY=(str, 'my secret'),
     ALLOWED_HOSTS=(str, '*'),
-    EMAIL_HOST=(str, 'smtp.gmail.com'),
-    EMAIL_PORT=(int, 587),
-    EMAIL_USE_TLS=(bool, True),
-    EMAIL_HOST_USER=(str, 'your_email@gmail.com'),
-    EMAIL_HOST_PASSWORD=(str, 'your_pass'),
 
 )
 environ.Env.read_env()
@@ -135,11 +130,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+#
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'EMAIL_HOST_USER'
+EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_PORT = env('EMAIL_PORT')
-EMAIL_USE_TLS = env('EMAIL_USE_TLS')
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
+
+try:
+    from .local_settings import*
+except ImportError:
+    print("local_settings is not defined")
 
